@@ -31,9 +31,9 @@
 
 <body>
     <!-- nav bar -->
-    <header>
-        <div class="navbar bg-base-100 shadow-sm">
-            <div class="navbar-start">
+    <header class=" bg-primary-content/60 shadow-sm">
+        <div class="navbar w-11/12 mx-auto">
+            <div class="navbar-start mx-0 max-w-2xl py-3">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -44,39 +44,90 @@
                     </div>
                     <ul tabindex="-1"
                         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
+                        <li><a>FAQ</a></li>
                         <li>
-                            <a>Parent</a>
-                            <ul class="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
+                            <a>Learn</a>
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li><a>Logout</a></li>
                     </ul>
                 </div>
-                <a class="btn btn-ghost text-xl">daisyUI</a>
+                <div class="flex gap-1 items-center">
+                    <p>English</p>
+                    <img src="./assets/logo.png" alt="">
+                    <p>জানালা</p>
+                </div>
             </div>
-            <div class="navbar-center hidden lg:flex">
-                <ul class="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <details>
-                            <summary>Parent</summary>
-                            <ul class="p-2 bg-base-100 w-40 z-1">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
-                </ul>
-            </div>
-            <div class="navbar-end">
-                <a class="btn">Button</a>
+
+            <div class="navbar-end  hidden lg:flex gap-1">
+                <button class="btn btn-sm btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i>
+                    FAQ</button>
+                <button class="btn btn-sm btn-outline btn-primary"><i class="fa-solid fa-book-open-reader"></i>
+                    Learn</button>
+                <button class="btn btn-sm btn-outline btn-primary"><i class="fa-solid fa-right-from-bracket"></i>
+                    Logout</button>
             </div>
         </div>
     </header>
+    <!-- banner -->
+    <div class="flex flex-col-reverse w-11/12 mx-auto  lg:flex-row gap-12 items-center ">
+        <div class="flex-1 space-y-4 text-center lg:text-left">
+            <h1 class="font-bold text-4xl"><span class="text-4xl text-sky-500">English</span> is Easy !!</h1>
+            <p class="hind">
+                আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের
+                Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+            </p>
+            <div class="flex flex-col  space-y-3">
+                <input type="text" placeholder="enter your name" class="p-2.5 rounded-md">
+                <input type="password" placeholder="password" class="p-2.5 rounded-md">
+                <div class="inline-block">
+                    <button class="btn btn-primary">get started</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1">
+            <img src="./assets/hero-student.png" alt="">
+        </div>
+    </div>
+    <!-- Learning section -->
+    <section class="w-11/12 mx-auto ">
+        <h1 class="text-2xl font-bold text-center mb-4"><span class="text-sky-400 text-2xl font-bold">Let's</span> Learn
+            Vocabularies</h1>
+        <!-- button -->
+        <div id="learnContainer" class="flex flex-wrap gap-1 max-w-4xl mx-auto mb-10">
+
+        </div>
+        <!-- spinner -->
+        <section class="flex justify-center items-center hidden" id="spinner">
+            <span class="loading loading-dots loading-xl"></span>
+        </section>
+        <!-- content -->
+        <div id="content"
+            class="bg-base-300 w-11/12 px-6 py-12 mx-auto mb-2.5 rounded-xl grid grid-cols-1 lg:grid-cols-3 gap-2">
+            <div class="text-center col-span-full">
+                <p class="hind text-gray-500 text-center mb-1.5">আপনি এখনো কোন Lesson Select করেন ন</p>
+                <h1 class="hind text-4xl text-center">একটি Lesson Select করুন।</h1>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Open the modal using ID.showModal() method -->
+
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box">
+            <div id="parentD">
+
+            </div>
+
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+
+        </div>
+    </dialog>
 
     <script src="./action.js"></script>
 </body>
