@@ -44,8 +44,20 @@ function LoadData(x) {
     fetch(`https://openapi.programming-hero.com/api/level/${x}`)
         .then(res => res.json())
         .then(p => word(p.data))
-    //show word
-    function word(data) {
+   
+   
+}
+
+//sound function 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
+//show data
+ function word(data) {
+    learnContent.innerHTML= ''
         if (data.length == 0) {
             learnContent.innerHTML = `
         <div class="text-center  col-span-full ">
@@ -70,8 +82,8 @@ function LoadData(x) {
             <p>Meaning/Pronounciation</p>
             <h1 class="hind text-2xl ">${x.meaning ? x.meaning : "not found"}</h1>
             <div class="flex items-center justify-between mx-auto">
-                <button onclick="detail(${x.id})"><i class="fa-solid fa-circle-info"></i></button>
-                <button><i class="fa-solid fa-volume-low"></i></button>
+                <button onclick="detail(${x.id})" class="btn"><i class="fa-solid fa-circle-info"></i></button>
+                <button onclick = "pronounceWord('${x.word}')" class="btn"><i class="fa-solid fa-volume-low"></i></button>
             </div>
            </div>
           `
@@ -82,7 +94,11 @@ function LoadData(x) {
         }
         )
     }
-}
+
+
+
+
+
 //spinner function
 const spinner = document.getElementById('spinner')
 function spin(value) {
@@ -102,7 +118,6 @@ function spin(value) {
 
 //synonyms word
 function createBtn(arr) {
-    console.log(arr)
     const pro = arr.map(i => `<span class= 'btn'> ${i}</span>`)
     return pro.join(" ")
 }
@@ -133,4 +148,24 @@ function detail(x) {//line 73
     `
         parentD.prepend(childD)
     }
+}
+
+//API 4
+
+const getbtn = document.getElementById('getbtn')
+const input = document.getElementById('input')
+
+
+fetch('https://openapi.programming-hero.com/api/words/all')
+.then(res => res.json())
+.then( obj => search(obj.data))
+
+
+function search(x){
+   
+    getbtn.addEventListener('click', () => {
+            const value = input.value.toLowerCase().trim()
+            const filterW = x.filter( i => i.word.toLowerCase().includes(value))
+            word(filterW)
+        })
 }
