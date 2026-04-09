@@ -1,5 +1,9 @@
 # ENGLISH <img width="25px" src="./assets/logo.png" /> JANALA
 
+# Access Link:
+https://mostakim-arafat.github.io/Dictionary-/
+
+
 ---
 
 ## ⚡ API Endpoints
